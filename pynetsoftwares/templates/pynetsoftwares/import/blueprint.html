@@ -1,0 +1,324 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<!-- Site Metas -->
+<title>{% block title %} {% endblock title %}</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- Site Icons -->
+<link rel="shortcut icon" href="{% static 'pynetsoftwares/images/favicon.ico' %}" type="image/x-icon" />
+<link rel="apple-touch-icon" href="{% static 'pynetsoftwares/images/apple-touch-icon.png' %}">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{% static 'pynetsoftwares/css/bootstrap.min.css' %}">
+
+<link rel="stylesheet" href="{% static 'pynetsoftwares/style.css' %}">
+
+
+<!-- Responsive CSS -->
+<link rel="stylesheet" href="{% static 'pynetsoftwares/responsive.css' %}">
+<!-- Custom CSS -->
+<link rel="stylesheet" href="{% static 'pynetsoftwares/custom.css' %}">
+
+
+
+
+<!-- Modernizer for Portfolio -->
+<script src="{% static 'pynetsoftwares/js/modernizer.js' %}"></script>
+<!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      
+    <![endif]-->
+<!-- Site CSS -->
+    <style>
+        
+    </style>
+</head>
+
+<body>
+<header class="header header_style_01">
+    <nav class="megamenu navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/"><img src="{% static 'pynetsoftwares/images/logos/pynetsoftwares.png' %}" alt="image"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+<!--                    <li><a class="active" href="/">Home</a></li>-->
+                    <li><a class="{% block homeactive %} {% endblock homeactive %}" href="/">Home</a></li>
+                    <li><a class="{% block aboutactive %} {% endblock aboutactive %}" href="/about-us">About us</a></li>
+                    <li><a class="{% block servicesactive %} {% endblock servicesactive %}" href="/services">Our Services</a></li>
+                    <li><a class="{% block coursesactive %} {% endblock coursesactive %}" href="/courses">Our Courses</a></li>
+                    <li><a class="{% block featuresactive %} {% endblock featuresactive %}" href="/features">Features</a></li>
+                    <li><a class="{% block testimonialsactive %} {% endblock testimonialsactive %}" href="/testimonials">Testimonials</a></li>
+                    <li><a class="{% block projectsactive %} {% endblock projectsactive %}" href="/projects">Projects</a></li>
+                    <li><a class="{% block contactactive %} {% endblock contactactive %}" href="/contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+    <!-- LOADER -->
+    <div id="preloader">
+        <div class="loader">
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__bar"></div>
+            <div class="loader__ball"></div>
+        </div>
+    </div><!-- end loader -->
+    <!-- END LOADER -->
+    {% block active %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% comment %} <div id="testimonials" class="parallax section db parallax-off"
+        style="background-image:url('{% static 'pynetsoftwares/uploads/parallax_03.jpg' %}');">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Testimonials</h3>
+                <p class="lead">We thanks for all our awesome testimonials! There are more than hundreds of our happy students!
+                    <br>Let's see what our students say about PyNet Softwares Pvt Ltd.
+                </p>
+            </div><!-- end title -->
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="testi-carousel owl-carousel owl-theme">
+                        
+                        <div class="testimonial clearfix">
+                        {% for stu_test in AllTestimonials %}
+                            <div class="desc">
+                                <h3><i class="fa fa-quote-left"></i> {{stu_test.review_heading}} </h3>
+                                <p class="lead">{{stu_test.review_content}}</p>
+                            </div>
+                            <div class="testi-meta">
+                                <img src="{{stu_test.student_images}}" alt=""
+                                    class="img-responsive alignleft">
+                                <h4>{{stu_test.student_name}} <small>- {{stu_test.course_name}}</small></h4>
+                            </div>
+                            <!-- end testi-meta -->
+                            {% endfor %}
+                        </div>
+                        
+                        <!-- end testimonial -->
+
+                        <div class="testimonial clearfix">
+                            <div class="desc">
+                                <h3><i class="fa fa-quote-left"></i> Awesome Services!</h3>
+                                <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and
+                                    praising pain was born and I will give you completed.</p>
+                            </div>
+                            <div class="testi-meta">
+                                <img src="{% static 'pynetsoftwares/uploads/testi_02.png' %}" alt=""
+                                    class="img-responsive alignleft">
+                                <h4>Jacques Philips <small>- Designer</small></h4>
+                            </div>
+                            <!-- end testi-meta -->
+                        </div>
+                        <!-- end testimonial -->
+
+                        <div class="testimonial clearfix">
+                            <div class="desc">
+                                <h3><i class="fa fa-quote-left"></i> Great & Talented Team!</h3>
+                                <p class="lead">The master-builder of human happines no one rejects, dislikes avoids
+                                    pleasure itself, because it is very pursue pleasure. </p>
+                            </div>
+                            <div class="testi-meta">
+                                <img src="{% static 'pynetsoftwares/uploads/testi_03.png' %}" alt=""
+                                    class="img-responsive alignleft">
+                                <h4>Venanda Mercy <small>- Newyork City</small></h4>
+                            </div>
+                            <!-- end testi-meta -->
+                        </div>
+                        <!-- end testimonial -->
+                        <div class="testimonial clearfix">
+                            <div class="desc">
+                                <h3><i class="fa fa-quote-left"></i> Wonderful Support!</h3>
+                                <p class="lead">They have got my project on time with the competition with a sed highly
+                                    skilled, and experienced & professional team.</p>
+                            </div>
+                            <div class="testi-meta">
+                                <img src="{% static 'pynetsoftwares/uploads/testi_01.png' %}" alt=""
+                                    class="img-responsive alignleft">
+                                <h4>James Fernando <small>- Manager of Racer</small></h4>
+                            </div>
+                            <!-- end testi-meta -->
+                        </div>
+                        <!-- end testimonial -->
+
+                        <div class="testimonial clearfix">
+                            <div class="desc">
+                                <h3><i class="fa fa-quote-left"></i> Awesome Services!</h3>
+                                <p class="lead">Explain to you how all this mistaken idea of denouncing pleasure and
+                                    praising pain was born and I will give you completed.</p>
+                            </div>
+                            <div class="testi-meta">
+                                <img src="{% static 'pynetsoftwares/uploads/testi_02.png' %}" alt=""
+                                    class="img-responsive alignleft">
+                                <h4>Jacques Philips <small>- Designer</small></h4>
+                            </div>
+                            <!-- end testi-meta -->
+                        </div>
+                        <!-- end testimonial -->
+
+                        <div class="testimonial clearfix">
+                            <div class="desc">
+                                <h3><i class="fa fa-quote-left"></i> Great & Talented Team!</h3>
+                                <p class="lead">The master-builder of human happines no one rejects, dislikes avoids
+                                    pleasure itself, because it is very pursue pleasure. </p>
+                            </div>
+                            <div class="testi-meta">
+                                <img src="{% static 'pynetsoftwares/uploads/testi_03.png' %}" alt=""
+                                    class="img-responsive alignleft">
+                                <h4>Venanda Mercy <small>- Newyork City</small></h4>
+                            </div>
+                            <!-- end testi-meta -->
+                        </div><!-- end testimonial -->
+                    </div><!-- end carousel -->
+                </div><!-- end col -->
+            </div><!-- end row --> {% endcomment %}
+
+            <hr class="hr1">
+
+            {% comment %} <div class="row logos">
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{% static 'pynetsoftwares/uploads/logo_01.png' %}" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{% static 'pynetsoftwares/uploads/logo_02.png' %}" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{% static 'pynetsoftwares/uploads/logo_03.png' %}" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{% static 'pynetsoftwares/uploads/logo_04.png' %}" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{% static 'pynetsoftwares/uploads/logo_05.png' %}" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-6 wow fadeInUp">
+                    <a href="#"><img src="{% static 'pynetsoftwares/uploads/logo_06.png' %}" alt=""
+                            class="img-repsonsive"></a>
+                </div>
+            </div><!-- end row --> {% endcomment %}
+
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <img src="{% static 'pynetsoftwares/images/logos/pynetsoftwares.png' %}" alt="" />
+                        </div>
+                        <p> PyNet Softwares is a global software development & industrial training company specializing in providing advanced technical training and certifications courses on latest programming technologies.</p>
+                        <p> We offer several innovative learning methods and delivery models to cater the unique requirements of a global customer base.</p>
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                            <h3>Pages</h3>
+                        </div>
+                        <ul class="footer-links hov">
+                            <li><a href="/">Home <span class="icon icon-arrow-right2"></span></a></li>
+                            <li><a href="/about-us">About Us <span class="icon icon-arrow-right2"></span></a></li>
+                            <li><a href="/services">Our Services <span class="icon icon-arrow-right2"></span></a></li>
+                            <li><a href="/courses">Our Courses <span class="icon icon-arrow-right2"></span></a></li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+                <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="widget clearfix">
+                        <div class="widget-title">
+                        <br>
+                        </div>
+                        <ul class="footer-links hov">
+                            <li><a href="/testimonials">Testimonials <span class="icon icon-arrow-right2"></span></a></li>
+                            <li><a href="/projects">Projects <span class="icon icon-arrow-right2"></span></a></li>
+                            <li><a href="/contact">Contacts <span class="icon icon-arrow-right2"></span></a></li>
+                        </ul><!-- end links -->
+                    </div><!-- end clearfix -->
+                </div><!-- end col -->
+                
+                {% comment %} <div class="col-md-4 col-sm-4 col-xs-12">
+                    <div class="footer-distributed widget clearfix">
+                        <div class="widget-title">
+                            <h3>Subscribe</h3>
+                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have
+                                suffered alteration in some form, by injected humour, or randomised words which one know
+                                this tricks.</p>
+                        </div>
+
+                        <div class="footer-right">
+                            <form method="get" action="#">
+                                <input placeholder="Subscribe our newsletter.." name="search">
+                                <i class="fa fa-envelope-o"></i>
+                            </form>
+                        </div>
+                    </div><!-- end clearfix -->
+                </div><!-- end col --> {% endcomment %}
+                
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </footer><!-- end footer -->
+
+    <div class="copyrights">
+        <div class="container">
+            <div class="footer-distributed">
+                <div class="footer-left">
+                    <p class="footer-company-name">All Rights Reserved. &copy; 2021 <a href="#">PyNet Softwares Pvt Ltd</a>
+                    </p>
+                </div>
+
+
+            </div>
+        </div><!-- end container -->
+    </div><!-- end copyrights -->
+
+    <a href="#" id="scroll-to-top" class="dmtop global-radius"><i class="fa fa-angle-up"></i></a>
+
+    <!-- ALL JS FILES -->
+    <script src="{% static 'pynetsoftwares/js/all.js' %}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{% static 'pynetsoftwares/js/custom.js' %}"></script>
+    <script src="{% static 'pynetsoftwares/js/portfolio.js' %}"></script>
+    <script src="{% static 'pynetsoftwares/js/hoverdir.js' %}"></script>
+    
+
+ 
+
+</body>
+
+</html>

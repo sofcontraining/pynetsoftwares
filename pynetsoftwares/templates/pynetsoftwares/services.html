@@ -1,0 +1,62 @@
+{% extends 'pynetsoftwares/import/blueprint.html' %} {% load static %}
+{% block title %} Services - GoodWEB Solutions {% endblock title %}
+{% block servicesactive %} active {% endblock servicesactive %}
+{% block content %}
+<div class="banner-area banner-bg-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="banner">
+          <h2>Our Services</h2>
+          <ul class="page-title-link">
+            <li><a href="home">Home</a></li>
+            <li><a href="services">Our Services</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="services" class="parallax section lb">
+  <div class="container">
+    <div class="section-title text-center">
+      <h3>Our Service</h3>
+      <p class="lead">PyNet Softwares is amongst top rates online learning platforms in the country, known to offer courses that help advance your career empower your skill set and add to your learning making them progressive.</p>
+      <p class="lead">Courses offered by us have already helped thousands of individuals win a skill relevant job acting instrumental in their career growth.</p>
+      <p class="lead">We are a team of IT enthusiasts who have worked in various industries and have gained enough global exposure to offer courses to students and working professionals as per the latest market trends. </p>
+      <p class="lead">We offer Offline training courses, Online certification courses, College incampus training, Corporate training, Summer Internship and Winter Training.</p>
+    </div>
+    <!-- end title -->
+
+      <div class="owl-services owl-carousel owl-theme" style="display:flex;flex-wrap: wrap;">
+        {% for service in AllServices %}
+        <div class="service-widget">
+          <div class="post-media wow fadeIn">
+            {% comment %}
+            <a href="{% url 'servicesdetails' service.serviceslug %}" data-rel="prettyPhoto[gal]"
+              class="hoverbutton global-radius"><i class="flaticon-unlink"></i></a>
+            {% endcomment %}
+            <a href="{% url 'servicesdetails' service.serviceslug %}" class="hoverbutton global-radius"><i
+                class="flaticon-unlink"></i></a>
+            <img src="{{service.serviceimages.url}}" alt="" class="img-responsive img-rounded" />
+          </div>
+          <div class="service-dit">
+            <h3>
+              <a href="{% url 'servicesdetails' service.serviceslug %}">{{service.servicetitle}}</a>
+            </h3>
+            <p>{{service.servicecontent|safe | truncatechars:100}}</p>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+        <!-- end service -->
+      </div>
+      <!-- end row -->
+    <hr class="hr1" />
+  </div>
+  <!-- end container -->
+</div>
+<!-- end section -->
+
+{% endblock %}

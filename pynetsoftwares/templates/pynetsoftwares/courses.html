@@ -1,0 +1,139 @@
+{% extends 'pynetsoftwares/import/blueprint.html' %}
+{% load static %}
+{% block title %} Courses - GoodWEB Solutions {% endblock title %}
+{% block coursesactive %} active {% endblock coursesactive %}
+{% block content %}
+   	<div class="banner-area banner-bg-1">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="banner">
+						<h2>Our Courses</h2>
+						<ul class="page-title-link">
+							<li><a href="home">Home</a></li>
+							<li><a href="courses">Our Courses</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+    <div id="portfolio" class="section wb">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Our Courses</h3>
+                <p class="lead" "text-align:justify ">PyNet Softwares is Best Industrial training Institute in Delhi NCR. PyNet Softwares provides all software development, web development and training courses according to current company demands.</p>
+                <p class="lead">We aggressively promote occupational Best industrial training including CSE, MCA, BCA, CS / IT / BBA/ MBA etc., in the portfolio our training. Our main asset are our professionally certified professional trainers who have done a lot in these related topics.</p>
+                <p class="lead">We have specialized trainers for training Python, PHP, MERN Stack, Mean Stack, Machine Learning, DataScience, Java, Oracle, PHP, Cloud Computing, Networking, Mobile App Development, Online fullstack training.</p>
+            </div><!-- end title -->
+        </div><!-- end container -->
+
+        
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <nav class="portfolio-filter text-center">
+                            <ul>
+                                <li><a class="btn btn-dark btn-radius btn-brd active" href="#" data-filter="*"><span class="oi hidden-xs" data-glyph="grid-three-up"></span> All</a></li>
+                                <li><a class="btn btn-dark btn-radius btn-brd" href="#" data-toggle="tooltip" data-placement="top" data-filter=".cat2">Frameworks</a></li>
+                                <li><a class="btn btn-dark btn-radius btn-brd" href="#" data-toggle="tooltip" data-placement="top"  data-filter=".cat1">Frontend</a></li>                            
+                                <li><a class="btn btn-dark btn-radius btn-brd" href="#" data-toggle="tooltip" data-placement="top" data-filter=".cat3">Databases</a></li>
+                                <li><a class="btn btn-dark btn-radius btn-brd" href="#" data-toggle="tooltip" data-placement="top" data-filter=".cat4">Programming</a></li>
+                                <li><a class="btn btn-dark btn-radius btn-brd" href="#" data-toggle="tooltip" data-placement="top" data-filter=".cat5">Full Stack</a></li>
+                                <li><a class="btn btn-dark btn-radius btn-brd" href="#" data-toggle="tooltip" data-placement="top" data-filter=".cat5">Marketing</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <hr class="invis">
+                <div class="row">
+                    {% for course in frontends %}
+                        <div class="col-md-3">
+                            <div id="da-thumbs" class="da-thumbs portfolio">
+                                <div class="post-media pitem item-w1 item-h1 cat1">
+                                    <a href="{% url 'coursedetails' course.slug %}">
+                                        <img src="{{course.courseimages.url}}" alt="" class="img-responsive">
+                                        <div>
+                                            <h3>{{course.coursename}} <small>Frontends</small></h3>
+                                            <i class="flaticon-unlink"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row">               
+                    {% for course in frameworks %}
+                        <div class="col-md-3">
+                            <div id="da-thumbs" class="da-thumbs portfolio">
+                                <div class="post-media pitem item-w1 item-h1 cat2">
+                                    <a href="{% url 'coursedetails' course.slug %}">
+                                        <img src="{{course.courseimages.url}}" alt="" class="img-responsive">
+                                        <div>
+                                            <h3>{{course.coursename}} <small> Frameworks</small></h3>
+                                            <i class="flaticon-unlink"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    {% for course in databases %}
+                        <div class="col-md-3">   
+                            <div id="da-thumbs" class="da-thumbs portfolio">
+                                <div class="post-media pitem item-w1 item-h1 cat3">
+                                    <a href="{% url 'coursedetails' course.slug %}">
+                                        <img src="{{course.courseimages.url}}" alt="" class="img-responsive">
+                                        <div>
+                                            <h3>{{course.coursename}} <small>Database</small></h3>
+                                            <i class="flaticon-unlink"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    {% for course in programming %}
+                        <div class="col-md-3">
+                            <div id="da-thumbs" class="da-thumbs portfolio">
+                                <div class="post-media pitem item-w1 item-h1 cat4">
+                                    <a href="{% url 'coursedetails' course.slug %}">
+                                        <img src="{{course.courseimages.url}}" alt="" class="img-responsive">
+                                        <div>
+                                            <h3>{{course.coursename}} <small>Programming</small></h3>
+                                            <i class="flaticon-unlink"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row">
+                    {% for course in marketing %}
+                        <div class="col-md-3">
+                            <div class="post-media pitem item-w1 item-h1 cat5">
+                                    <a href="{% url 'coursedetails' course.slug %}">
+                                        <img src="{{course.courseimages.url}}" alt="" class="img-responsive">
+                                        <div>
+                                            <h3>{{course.coursename}} <small>Marketing</small></h3>
+                                            <i class="flaticon-unlink"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+    </div>
+{% endblock %}
+
+        

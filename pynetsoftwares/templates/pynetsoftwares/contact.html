@@ -1,0 +1,104 @@
+{% extends 'pynetsoftwares/import/blueprint.html' %}
+{% load static %}
+{% block title %} Contact Us - GoodWEB Solutions {% endblock title %}
+{% block contactactive %} active {% endblock contactactive %}
+
+
+{% block content %}
+
+   	<div class="banner-area banner-bg-1">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="banner">
+						<h2>Contact Us</h2>
+						<ul class="page-title-link">
+							<li><a href="home">Home</a></li>
+							<li><a href="contact">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+    <div id="contact" class="section wb">
+        <div class="container">
+            <div class="section-title text-center">
+                <h3>Get in touch</h3>
+                <p class="lead">Let us give you more details about the special offer website you want us. Please fill out the form below. <br>We have million of website owners who happy to work with us!</p>
+            </div><!-- end title -->
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="contact_form">
+                        <div id="message"></div>
+
+                        <form method="POST" action="{% url 'contact' %}">
+                            {% csrf_token %}
+                            
+                            <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Your Name" name="name" value="{{ name }}" required>
+                            </div>
+                            <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Contact No</label>
+                            <input type="mobile" class="form-control" placeholder="Contact No" name="mobile" value="{{ mobile }}" required>
+                            </div>
+                            <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" placeholder="Enter Email" name="email" value="{{ email }}" required>
+                            </div>
+                            <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Course</label>
+                            <input type="text" class="form-control" placeholder="Enter Course" name="course" value="{{ course }}" required>
+                            </div>
+                            <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Your Comment</label>
+                            <input type="text" class="form-control" placeholder="Enter Your Comment" name="msg" value="{{ msg }}" required>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                            
+                        </form>
+
+
+                    </div>
+                </div><!-- end col -->
+            </div><!-- end row -->
+			
+			<div class="row">
+				<div class="col-md-offset-1 col-sm-10 col-md-10 col-sm-offset-1 pd-add">
+					<div class="address-item">
+						<div class="address-icon">
+							<i class="icon icon-location2"></i>
+						</div>
+						<h3>Headquarters</h3>
+						<p>PO Box 16122 Collins Street West 
+							<br> Victoria 8007 Australia</p>
+					</div>
+					<div class="address-item">
+						<div class="address-icon">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</div>
+						<h3>Email Us</h3>
+						<p>info@yoursite.com
+							<br>info@yoursite.com</p>
+					</div>
+					<div class="address-item">
+						<div class="address-icon">
+							<i class="icon icon-headphones"></i>
+						</div>
+						<h3>Call Us</h3>
+						<p>+61 3 8376 6284
+							<br>+61 3 8376 6185</p>
+					</div>
+				</div>
+			</div><!-- end row -->
+			
+        </div><!-- end container -->
+    </div><!-- end section -->
+
+{% endblock %}
+

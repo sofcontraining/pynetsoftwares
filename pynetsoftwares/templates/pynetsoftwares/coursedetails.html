@@ -1,0 +1,146 @@
+{% extends 'pynetsoftwares/import/blueprint.html' %} {% load static %} {% block title %} {{course.heading}} {% endblock title %} {% block content %}
+<section class="banner-section bg-banner">
+    <div class="container-fluid">
+        {% include 'pynetsoftwares/coursedetails.css.html'%}
+        <div class="row coursepage">
+            <div class="col-md-8 col-sm-8 col-xs-12 ">
+                <div class="red-heading clearfix">
+                    <div class="red-heading-inner">
+                        <div class="review-reating" style="padding-left: 25px;">
+                            <h1 class="subject-title">{{course.heading}}</h1>
+                            <img src="https://www.cromacampus.com/wp-content/themes/cromacampus/assets/img/star_5_new.png" alt="4 Star Rating: Very Good">
+                            <ul class="social-icons list-items">
+                                <li><i class="fa fa-google"></i> 4.3/5</li>
+                                <li><i class="fa fa-facebook"></i> 4.9/5 </li>
+                                <li><i class="fa fa-star trust-pilot"></i> 5/5
+                                </li>
+                            </ul>
+                            <div class="rating-text"><span>5.00</span> out of <span>5</span> based on <span>11423</span> ratings.
+                            </div>
+                        </div>
+                        <ul class="course-features">
+                            <li>
+                                <div class="feature-title">Course Duration
+                                </div>
+                                <div class="feature-text">30 hours</div>
+                            </li>
+                            <li>
+                                <div class="feature-title"> Live Projects</div>
+                                <div class="feature-text"> 02 </div>
+                            </li>
+                            <li>
+                                <div class="feature-title"> Certification Pass </div>
+                                <div class="feature-text">Guaranteed</div>
+                            </li>
+                            <li>
+                                <div class="feature-title"> Training Format </div>
+                                <div class="feature-text"> Online Training / Classroom </div>
+                            </li>
+                        </ul>
+                        <br>
+                        {% comment %} <div class="course-stats clearfix">
+                            <div>
+                                <p class="counter">140 +</p>
+                                <p>Professionals trained</p>
+                            </div>
+                            <div>
+                                <p class="counter">35 +</p>
+                                <p>Workshops every month</p>
+                            </div>
+                            <div>
+                                <p class="counter">15 +</p>
+                                <p>Countries and counting</p>
+                            </div>
+                            <div>
+                                <p class="counter">100 +</p>
+                                <p>Corporates Served</p>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+                <div class="video-box-course">
+                    <a href="javascript:void(0);" data-toggle="modal" data-target="#download_demo_class" data-text="Enter Your Details" data-message="Message">
+                        <!-- <span>Watch Demo Class</span> -->
+                        <img src="{{course.courseimages.url}}" style="width: 100%; height:auto;" alt="">
+                    </a>
+                </div>
+                {% comment %} <div class="container">
+                    <button class="button btn btn-light btn-radius btn-brd" type="button" data-toggle="modal" data-target="#queryCourseDetails">Send Query
+                    </button>
+                    <button class="button btn btn-light btn-radius btn-brd" type="button" data-toggle="modal" data-target="#enrollNow">Enroll Now
+                    </button>
+                </div> {% endcomment %}
+            </div>
+
+        </div>
+        {% comment %}
+        <div class="course-stats clearfix">
+            <div>
+                <p class="counter">140 +</p>
+                <p>Professionals trained</p>
+            </div>
+            <div>
+                <p class="counter">35 +</p>
+                <p>Workshops every month</p>
+            </div>
+            <div>
+                <p class="counter">15 +</p>
+                <p>Countries and counting</p>
+            </div>
+            <div>
+                <p class="counter">100 +</p>
+                <p>Corporates Served</p>
+            </div>
+        </div> {% endcomment %}
+    </div>
+</section>
+
+<section class="content-section bg-banner">
+    <div class="container-fluid">
+        <h2 class="content-title">{{course.coursename}} Course Introduction</h2>
+        <p>{{course.courseintroduction|safe}}</p>
+        <h2 class="content-title">{{course.coursename}} Course Content</h2>
+        <p>{{course.coursecontent|safe}}</p>
+    </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade my-20" id="queryCourseDetails" tabindex="-1" role="dialog" aria-labelledby="queryCourseDetails" aria-hidden="true" style="margin-top: 86px;">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <center>
+                    <h1 class="modal-title" id="queryCourseDetailsPage">Query Form</h1>
+                </center>
+            </div>
+            <div class="modal-body">
+                <form action="/?next={{ request.path }}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Contact</label>
+                        <input type="text" class="form-control" id="phone" placeholder="Enter Contact" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="course">Course</label>
+                        <input type="text" class="form-control" id="course" placeholder="Enter Course" name="course" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
